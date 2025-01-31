@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Keranjang Pesanan</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a herf="#" class="navbar-logo">Restoran<span>WOW.</span></a>
+      <div class="navbar-nav">
+        <a href="{{ url_for('index') }}">Tentang</a>
+        <a href="{{ url_for('about') }}">Beranda</a>
+        <a href="{{ url_for('menu_user') }}">Menu</a>
+        <a href="{{ url_for('cart_session') }}">Keranjang</a>
+        <a href="{{ url_for('transaksi') }}">Transaksi</a>
+        <a href="javascript:void(0);" id="adminLink">Admin</a>
+      </div>
+    </nav>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-close" id="closeModal">&times;</span>
+        <h2>Login Admin</h2>
+        <form action="/login" method="POST" class="custom-login-form">
+          <label for="username">Username:</label>
+          <input type="text" name="username" required />
+
+          <label for="password">Password:</label>
+          <input type="password" name="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Menambahkan file JS -->
+    <script src="{{ url_for('static', filename='js/script_admin.js') }}"></script>
+    <div class="container">
+      <h2>Keranjang Pesanan</h2>
+      
+      {% if orders %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID Pesanan</th>
+            <th>Nama Menu</th>
+            <th>Jumlah</th>
+            <th>Total Harga</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.menu_name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.total_price }} IDR</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      <div class="btn-container">
+        {% if cart_items %}
+        <ul>
+          {% for item in cart_items %}
+          <li class="cart-item">
+            <p>
+              {{ item.menu_name }} - {{ item.quantity }} x Rp. {{ item.total_price
+              }}
+            </p>
+            <form
+              action="{{ url_for('remove_from_cart', menu_id=item.menu_id) }}"
+              method="POST"
+            >
+              <button type="submit" class="btn btn-danger btn-sm">
+                Hapus Item
+              </button>
+            </form>
+          </li>
+          {% endfor %}
+        </ul>
+      
+        <div class="btn-container">
+          <a href="{{ url_for('transaksi') }}" class="btn btn-primary"
+            >Lanjutkan ke Pembayaran</a
+          >
+        </div>
+        {% else %}
+        <p class="text-center text-muted">Selamat berbelanja</p>
+        {% endif %}
+      </div>
+        <form method="POST" action="{{ url_for('transaksi') }}">
+          <button type="submit" class="btn btn-primary">
+            Lanjutkan ke Pembayaran
+          </button>
+        </form>
+        <br />
+        <a href="{{ url_for('clear_cart') }}" class="btn btn-danger"
+          >Hapus Semua Pesanan</a
+        >
+        <a href="{{ url_for('about') }}" class="btn btn-secondary"
+          >Kembali ke Menu</a
+        >
+      </div>
+      {% else %}
+      <p class="text-center text-muted">Keranjang Anda kosong.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

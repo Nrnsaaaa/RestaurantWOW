@@ -1,0 +1,473 @@
+:root {
+  --primary: #503d19;
+}
+/* Gaya umum */
+body {
+  background-image: url("../img/restaoran.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 50px; /* Sesuaikan dengan tinggi navbar */
+}
+
+header {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: #ecba30cb;
+  border-bottom: 1px solid var(#ffffff);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 5px;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+  background-color: #fffb13;
+  border-radius: 5px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 120px; /* Tambahkan lebih banyak margin agar tidak bertabrak */
+  padding-top: 50px; /* Sesuaikan padding agar tidak terlalu jauh */
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  color: #ffcc00; /* Warna kuning cerah agar tidak bertabrakan */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Efek bayangan */
+}
+
+h3 {
+  text-align: center;
+  font-size: 7rem;
+  margin: 50px auto;
+  padding-top: 80px;
+  color: #ffcc00;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+p {
+  font-size: 2rem;
+  color: rgb(255, 255, 255); /* Ubah teks utama menjadi putih */
+  text-align: center;
+  margin: 10px auto;
+  padding-left: 75px;
+  align-content: center;
+}
+
+a {
+  color: #ffcc00; /* Warna link agar kontras */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffaa00;
+}
+
+/* Tabel menu */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #705e16;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ffe0d6;
+}
+
+/* Form pesanan */
+form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #b4992d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffcc00;
+}
+
+/* Reset beberapa gaya dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gaya untuk daftar menu */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Gaya untuk setiap item menu */
+li {
+  margin-top: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Menambahkan gaya untuk nama menu */
+li strong {
+  font-size: 1.2rem;
+  color: #ffcc00;
+}
+
+/* Gaya untuk kategori, harga, dan deskripsi */
+li p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+li .category {
+  font-weight: bold;
+  color: #6c757d;
+}
+
+li .price {
+  font-weight: bold;
+  color: #28a745;
+}
+
+li .description {
+  font-style: italic;
+  color: #6c757d;
+}
+
+/* Menambahkan efek hover pada item menu */
+li:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.cart-item {
+  padding: 10px;
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.cart-item form {
+  display: inline-block;
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Awalnya disembunyikan */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: rgb(83, 71, 71);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center; /* Tengahkan teks */
+  width: 300px;
+
+  /* Tengahkan modal secara sempurna */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column; /* Atur elemen agar vertikal */
+  gap: 10px; /* Beri jarak antar elemen */
+}
+.modal-content button {
+  width: 100%; /* Tombol selebar modal */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: rgb(63, 54, 54);
+  color: white;
+}
+
+/* Modal Overlay */
+.custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content */
+.custom-modal-content {
+  background: rgb(83, 71, 71);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Tambahkan jarak antar elemen */
+}
+
+/* Tombol Close (X) */
+.custom-close {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+
+.custom-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+/* Form */
+.custom-login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-login-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px; /* Tambahkan jarak antar input */
+}
+
+.custom-login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.custom-login-form button:hover {
+  background-color: #555;
+}
+
+#payCOD {
+  background-color: #4caf50;
+  color: white;
+}
+
+#payWA {
+  background-color: #25d366;
+  color: white;
+}
+
+#closeModal {
+  background-color: #ccc;
+}
+
+/* Button untuk menutup modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Form Style */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: #555;
+}

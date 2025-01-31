@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Menu</title>
+  </head>
+  <body>
+    <h1>Tambah Menu</h1>
+    <form method="POST" action="{{ url_for('add_menu') }}">
+      <label for="name">Nama Menu:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="category">Kategori:</label><br />
+      <input type="text" id="category" name="category" required /><br /><br />
+
+      <label for="description">Deskripsi:</label><br />
+      <textarea id="description" name="description"></textarea><br /><br />
+
+      <label for="price">Harga:</label><br />
+      <input
+        type="number"
+        id="price"
+        name="price"
+        step="0.01"
+        required
+      /><br /><br />
+
+      <button type="submit">Tambah Menu</button>
+    </form>
+    <a href="{{ url_for('menu') }}">Kembali ke Daftar Menu</a>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Daftar Menu</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a herf="#" class="navbar-logo">Restoran<span>WOW.</span></a>
+      <div class="navbar-nav">
+        <a href="{{ url_for('index') }}">Tentang</a>
+        <a href="{{ url_for('about') }}">Beranda</a>
+        <a href="{{ url_for('menu_user') }}">Menu</a>
+        <a href="{{ url_for('cart_session') }}">Keranjang</a>
+        <a href="{{ url_for('transaksi') }}">Transaksi</a>
+        <a href="javascript:void(0);" id="adminLink">Admin</a>
+      </div>
+    </nav>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-close" id="closeModal">&times;</span>
+        <h2>Login Admin</h2>
+        <form action="/login" method="POST" class="custom-login-form">
+          <label for="username">Username:</label>
+          <input type="text" name="username" required />
+
+          <label for="password">Password:</label>
+          <input type="password" name="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Menambahkan file JS -->
+    <script src="{{ url_for('static', filename='js/script_admin.js') }}"></script>
+    <div class="container">
+      <ul>
+        {% for menu in menus %}
+        <li>
+          <strong>{{ menu.name }}</strong> <br />
+          Kategori: {{ menu.category }} <br />
+          Harga: Rp{{ menu.price }} <br />
+          Deskripsi: {{ menu.description }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beranda</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Restoran<span>WOW.</span></a>
+      <div class="navbar-nav">
+        <a href="{{ url_for('index') }}">Tentang</a>
+        <a href="{{ url_for('about') }}">Beranda</a>
+        <a href="{{ url_for('menu_user') }}">Menu</a>
+        <a href="{{ url_for('cart_session') }}">Keranjang</a>
+        <a href="{{ url_for('transaksi') }}">Transaksi</a>
+        <a href="javascript:void(0);" id="adminLink">Admin</a>
+      </div>
+    </nav>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-close" id="closeModal">&times;</span>
+        <h2>Login Admin</h2>
+        <form action="/login" method="POST" class="custom-login-form">
+          <label for="username">Username:</label>
+          <input type="text" name="username" required />
+
+          <label for="password">Password:</label>
+          <input type="password" name="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Menu Favorit</h2>
+      <table border="1" style="width: 100%; text-align: left">
+        <tr>
+          <th>Gambar</th>
+          <th>Nama</th>
+          <th>Deskripsi</th>
+          <th>Harga</th>
+          <th>Aksi</th>
+        </tr>
+        {% for menu in menus %}
+        <tr>
+          <td>
+            <img src="{{ url_for('static', filename='img/' + menu.image) if menu.image else url_for('static', filename='img/default.jpg') }}"
+              alt="{{ menu.name }}"
+              style="width: 100px; height: auto;" />
+          </td>
+          </td>
+          <td>{{ menu.name }}</td>
+          <td>{{ menu.description }}</td>
+          <td>Rp. {{ menu.price }}</td>
+          <td>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+              <label for="quantity_{{ menu.id }}">Jumlah:</label>
+              <input
+                type="number"
+                name="quantity"
+                id="quantity_{{ menu.id }}"
+                min="1"
+                value="1"
+              />
+              <input type="hidden" name="menu_id" value="{{ menu.id }}" />
+              <input type="hidden" name="menu_name" value="{{ menu.name }}" />
+              <input type="hidden" name="menu_price" value="{{ menu.price }}" />
+              <button type="submit">Pesan Sekarang</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <!-- Menambahkan file JS -->
+    <script src="{{ url_for('static', filename='js/script_admin.js') }}"></script>
+  </body>
+</html>

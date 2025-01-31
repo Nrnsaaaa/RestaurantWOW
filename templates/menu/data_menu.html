@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Menu</title>
+  </head>
+  <body>
+    <h1>Daftar Menu</h1>
+    <a href="{{ url_for('add_menu') }}">Tambah Menu</a>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nama</th>
+          <th>Kategori</th>
+          <th>Deskripsi</th>
+          <th>Harga</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in menu_items %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.price }}</td>
+          <td>
+            <form
+              method="POST"
+              action="{{ url_for('add_to_cart', menu_id=item.id) }}"
+            >
+              <input type="number" name="quantity" min="1" required />
+              <button type="submit">Tambah ke Keranjang</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
