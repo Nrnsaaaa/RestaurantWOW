@@ -13,7 +13,7 @@ app.secret_key = 'your_secret_key'
 db_url = os.getenv("DATABASE_URL")
 
 # Konfigurasi koneksi ke MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://nuranisa:NURANISATOKOAPP07@localhost/restaurant_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inisialisasi database dan migrasi
