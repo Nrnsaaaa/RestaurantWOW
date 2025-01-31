@@ -4,10 +4,13 @@ from flask_migrate import Migrate
 from sqlalchemy import inspect
 from datetime import datetime
 import random
+import os
 from models import db, Admin, Menu, Orders  # Impor model dari models.py
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
+
+db_url = os.getenv("DATABASE_URL")
 
 # Konfigurasi koneksi ke MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://nuranisa:NURANISATOKOAPP07@localhost/restaurant_db'
