@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Konfigurasi koneksi ke MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://nuranisa:NURANISATOKOAPP07@viaduct.proxy.rlwy.net:3306/restaurant_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://nuranisa:NURANISATOKOAPP07@localhost/restaurant_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inisialisasi database dan migrasi
